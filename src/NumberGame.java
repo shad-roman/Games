@@ -26,7 +26,7 @@ public class NumberGame  extends JFrame {
         setLayout(new BorderLayout(10, 10));
 
         try {
-            game = new NumberleLogic("src/numbers.txt");
+            game = new NumberleLogic("resources/numbers.txt");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error while opening file");
             System.exit(1);

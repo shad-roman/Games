@@ -29,7 +29,7 @@ public class WordGame extends JFrame  {
         setLayout(new BorderLayout(10, 10));
 
         try {
-            game = new GameLogic("src/words.txt");
+            game = new GameLogic("resources/words.txt");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error while opening file");
             System.exit(1);
