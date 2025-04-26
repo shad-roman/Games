@@ -2,10 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GuessTheFlagWithoutVariants extends JFrame {
 
@@ -66,7 +68,13 @@ public class GuessTheFlagWithoutVariants extends JFrame {
                 }
             }
         }
-        countries = new HashSet<>(flagMap.keySet());
+        try {
+            List<String> listOfCountries = Files.readAllLines(Paths.get("resources/countries.txt"));
+            countries = new HashSet<>(listOfCountries);
+            countries = countries.stream().map(String::toLowerCase).collect(Collectors.toCollection(HashSet::new));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
