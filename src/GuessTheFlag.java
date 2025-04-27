@@ -92,6 +92,11 @@ public class GuessTheFlag extends JFrame {
 
         if (but.equals(correctCountry)){
             score++;
+            flagMap.remove(correctCountry);
+            if (score == 5){
+                JOptionPane.showMessageDialog(this, "🎉 Win!");
+                System.exit(0);
+            }
             JOptionPane.showMessageDialog(this, "Correct! Score: " + score);
         } else {
             JOptionPane.showMessageDialog(this, "Incorrect! Correct country: " + correctCountry +
