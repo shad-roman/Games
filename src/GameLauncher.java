@@ -4,7 +4,7 @@ public class GameLauncher {
 
         public static void main(String[] args) {
             SwingUtilities.invokeLater(() -> {
-                String[] options = {"Wordle", "Numberle", "Guess the flag", "Guess the flag 2"};
+                String[] options = {"Wordle", "Numberle", "Guess the flag", "Guess the flag 2", "Battleship"};
                 String choice = (String) JOptionPane.showInputDialog(
                         null,
                         "Choose the game:",
@@ -22,6 +22,7 @@ public class GameLauncher {
                     case "Numberle" -> new NumberGame(); // Запуск второй игры
                     case "Guess the flag" -> new GuessTheFlag();
                     case "Guess the flag 2" -> new GuessTheFlagWithoutVariants();
+                    case "Battleship" -> new Battleship();
                 }
             });
         }
